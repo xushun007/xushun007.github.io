@@ -13,7 +13,7 @@ render_with_liquid: false
 
 “Vibe Coding”这一术语的广泛传播始于Andrej Karpathy在2025年2月发布的一条社交媒体帖子。他将其描述为一种“全新的编码方式”，特点是“完全沉浸于感觉（vibes），甚至忘记代码的存在” 。这与他早先提出的“最热门的新编程语言是英语”的观点一脉相承，即LLM的进步使得人类无需学习特定的编程语言也能指挥计算机。
 
-<img src="assets/img/202504/kpath.png"  width="80%" align="center">
+<img src="assets/img/202504/kpath.png" alt="Karpathy" width="80%" >
 
 
 Karpathy最初将这种方式定位为适用于“一次性的周末项目”，承认其存在高度依赖AI、纯自然语言交互、注重“感觉”的特性和局限性，例如AI有时无法修复bug，需要反复尝试修改。
