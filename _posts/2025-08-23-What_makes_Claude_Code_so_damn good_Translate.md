@@ -7,14 +7,11 @@ tags: [Agent, Claude Code]
 render_with_liquid: false
 ---
 
-### **Claude Code凭什么这么好用？（以及如何在你的AI智能体中复现这种魔力）**
-
-
 Claude Code是我迄今用过的最令人愉悦的AI智能体/工作流。它不仅让进行有针对性的代码编辑或编写一次性小工具这类“随性编程”变得不再烦人，使用Claude Code甚至让我感到快乐。它有足够的自主性来做一些有趣的事情，同时又不会像其他一些工具那样，带来令人不适的失控感。当然，大部分繁重的工作是由新的Claude 4模型完成的（尤其是其交错思维能力）。但我发现，即便使用相同的底层模型，Claude Code在客观上用起来也比Cursor或Github Copilot的智能体要舒服得多！它究竟凭什么这么好用？如果你在读这篇文章时也正点头赞同，我将尝试给出一些答案。
 
 > **注意：** 这不是一篇泄露Claude Code架构的博文（网上已经有一些不错的了）。这篇博文旨在成为一份构建优秀LLM（大语言模型）智能体的指南，它基于我过去几个月使用和琢磨Claude Code的个人经验（以及我们拦截并分析的所有日志）。你可以在**附录**部分找到**提示词**和**工具**。本文约2000词，请坐稳了！如果你想快速了解要点，\*\*“长话短说”\*\*部分是个不错的起点。
 
-![](https://minusx.ai/images/claude-code/prompts.png)
+<img src="assets/img/202508/20250821_1.png" alt="agent" width="100%" >
 
 *（图片描述：你可以清楚地看到Claude Code的不同更新。）*
 
@@ -22,7 +19,8 @@ Claude Code (CC) 的使用体验非常棒，因为它**就是好用**。CC的打
 
 我们MinusX在CC一发布就开始使用它了。为了探其究竟，**Sreejith**编写了一个日志记录器，可以拦截并记录它发出的每一个网络请求。以下分析源于我过去几个月的大量使用。**本文试图回答这个问题——“是什么让Claude Code如此出色，以及你如何在自己的基于聊天的LLM智能体中提供类似的体验？”** 我们已经将其中大部分理念融入了MinusX，我也很期待看到你们也这样做！
 
-![](https://minusx.ai/images/claude-code/tools.png)
+<img src="assets/img/202508/20250821_2.png" alt="agent" width="100%" >
+
 *（图片描述：Edit（编辑）是最常用的工具，其次是Read（读取）和ToDoWrite（写入待办事项）。）*
 
 #### **如何构建一个类似Claude Code的智能体：长话短说（TL;DR）**
@@ -61,7 +59,7 @@ Claude Code在每个节点都选择了架构上的简洁性——一个主循环
 
 我非常怀疑你的应用是否需要一个多智能体系统。每增加一层抽象，你的系统就更难调试，更重要的是，你偏离了通用模型改进的轨道。
 
-![](https://minusx.ai/images/claude-code/control_loop.gif)
+<img src="assets/img/202508/20250821_3.gif" alt="agent" width="100%" >
 
 **1.2 大量使用一个更小的模型**
 
