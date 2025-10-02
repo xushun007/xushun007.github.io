@@ -99,7 +99,7 @@ Claude Agent SDK 在代码生成方面表现出色——这是有充分理由的
 
 在构建代理时，请思考：哪些任务通过代码来表达会更有益？通常，答案会解锁强大的功能。
 
-例如，我们最近在 [Claude.AI](http://claude.ai) 中推出的[文件创建](https://www.anthropic.com/news/create-files-with-claude)功能完全依赖于代码生成。Claude 编写 Python 脚本来创建 Excel 电子表格、PowerPoint 演示文稿和 Word 文档，确保了格式的一致性和复杂的功能，而这些是其他方式难以实现的。
+例如，我们最近在 [Claude.AI](https://claude.ai) 中推出的[文件创建](https://www.anthropic.com/news/create-files-with-claude)功能完全依赖于代码生成。Claude 编写 Python 脚本来创建 Excel 电子表格、PowerPoint 演示文稿和 Word 文档，确保了格式的一致性和复杂的功能，而这些是其他方式难以实现的。
 
 在我们的电子邮件代理中，我们可能希望允许用户为收到的邮件创建规则。为实现这一点，我们可以编写在特定事件发生时运行的代码：
 
