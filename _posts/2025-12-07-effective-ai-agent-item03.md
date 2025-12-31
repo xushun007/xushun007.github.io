@@ -101,51 +101,51 @@ class ResearchContext:
 # === 2. 搜集专家 (Researcher) ===
 # 边界定义：负责“发散”，拥有外部连接能力
 class ResearchAgent:
-    def __init__(self):
-        self.role = "Information Hunter"
-        self.system_prompt = RESEARCHER_PROMPT
-        # 【物理边界】仅授予搜索/浏览工具，隔离了“编造”的冲动
-        self.tools = [google_search, browse_webpage] 
+    def __init__(self):
+        self.role = "Information Hunter"
+        self.system_prompt = RESEARCHER_PROMPT
+        # 【物理边界】仅授予搜索/浏览工具，隔离了“编造”的冲动
+        self.tools = [google_search, browse_webpage]
 
-    def run(self, topic: str) -> ResearchContext:
-        print(f"[{self.role}] 正在执行搜集任务: {topic}...")
-        # 模拟：Loop 执行搜索直到信息充足
-        # materials = agent_executor(self.system_prompt, self.tools, topic)
-        return ResearchContext(
-            topic=topic,
-            raw_materials=["数据源A: Q3增长率15%", "数据源B: 市场规模200亿"]
-        )
+    def run(self, topic: str) -> ResearchContext:
+        print(f"[{self.role}] 正在执行搜集任务: {topic}...")
+        # 模拟：Loop 执行搜索直到信息充足
+        # materials = agent_executor(self.system_prompt, self.tools, topic)
+        return ResearchContext(
+            topic=topic,
+            raw_materials=["数据源A: Q3增长率15%", "数据源B: 市场规模200亿"]
+        )
 
 # === 3. 写作专家 (Writer) ===
 # 边界定义：负责“收敛”，被物理切断互联网
 class WriterAgent:
-    def __init__(self):
-        self.role = "Content Synthesizer"
-        self.system_prompt = WRITER_PROMPT
-        # 【物理边界】工具列表为空！
-        # 即使模型产生幻觉想去搜索，代码层面也无路可走。
-        # 这就是“Code-level Guardrails”
-        self.tools = [] 
+    def __init__(self):
+        self.role = "Content Synthesizer"
+        self.system_prompt = WRITER_PROMPT
+        # 【物理边界】工具列表为空！
+        # 即使模型产生幻觉想去搜索，代码层面也无路可走。
+        # 这就是“Code-level Guardrails”
+        self.tools = []
 
-    def run(self, context: ResearchContext) -> str:
-        print(f"[{self.role}] 基于 {len(context.raw_materials)} 条素材进行闭卷写作...")
-        # 模拟：纯推理过程
-        # article = llm.predict(self.system_prompt, context.raw_materials)
-        return "深度分析报告：基于Q3增长率..."
+    def run(self, context: ResearchContext) -> str:
+        print(f"[{self.role}] 基于 {len(context.raw_materials)} 条素材进行闭卷写作...")
+        # 模拟：纯推理过程
+        # article = llm.predict(self.system_prompt, context.raw_materials)
+        return "深度分析报告：基于Q3增长率..."
 
 # === 4. 编排层 (Orchestration) ===
 # 将两个“窄任务”串联成一个“宽能力”
 def deep_research_flow(topic: str):
-    # Phase 1: 扩充信息熵 (Research)
-    researcher = ResearchAgent()
-    context = researcher.run(topic)
-    
-    # Phase 2: 压缩信息熵 (Write)
-    # 显式交接：将上游产出作为下游的唯一输入
-    writer = WriterAgent()
-    article = writer.run(context)
-    
-    return article
+    # Phase 1: 扩充信息熵 (Research)
+    researcher = ResearchAgent()
+    context = researcher.run(topic)
+
+    # Phase 2: 压缩信息熵 (Write)
+    # 显式交接：将上游产出作为下游的唯一输入
+    writer = WriterAgent()
+    article = writer.run(context)
+
+    return article
 
 ```
 
