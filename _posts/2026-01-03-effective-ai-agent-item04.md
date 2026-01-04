@@ -7,9 +7,7 @@ tags: [Agent, Effective AI Agent, Plan, Memory]
 render_with_liquid: false
 ---
 
-## 条目 4：把 Agent 模块化为Planner/Executor/Memory，否则迟早写成意大利面条
-
-### 背景动机
+## 背景动机
 
 很多团队做 Agent，最先崩掉的不是模型能力，而是架构形态：一个“万能循环”里既要规划步骤、又要挑工具、还要记住上下文，最后 Prompt、工具调用、状态更新全缠在一起，形成典型的意大利面条系统。你想换一种规划策略、想把执行放进沙箱、想加长期记忆，都会变成“牵一发动全身”的大手术。
 
@@ -17,7 +15,7 @@ render_with_liquid: false
 
 ---
 
-### 原理分析
+## 原理分析
 
 把 Agent 当作软件架构来设计，最小可用的主干就是三件套：**Planner 负责“想清楚怎么做”，Executor 负责“把事做掉”，Memory 负责“该记的记住”**。它们分开不是为了好看，而是为了满足软件工程里最硬的两条：**单一职责**与**可替换性**——你能独立替换 Planner（规划策略/模型/提示词）、独立替换 Executor（本地/CI/沙箱/只读）、独立替换 Memory（短期摘要/长期检索/可审计账本），而不会把系统拧成一坨。
 
@@ -31,7 +29,7 @@ Memory 是第三个最容易“糊在一起”的模块。LangChain 对 memory �
 
 ---
 
-### 工程实践
+## 工程实践
 
 真正落地模块化，抓住一个顺序就够了：**先定 Task 契约，再围绕 Task 演进 Planner / Executor / Memory**。
 
@@ -43,7 +41,7 @@ Memory 是第三个最容易“糊在一起”的模块。LangChain 对 memory �
 
 ---
 
-### 示例代码
+## 示例代码
 
 下面这段伪代码体现一个“可运营”的最小闭环：Executor 只消费 Task；Memory 作为账本收口；Orchestrator 负责循环、治理与触发 re-plan。
 
@@ -231,7 +229,7 @@ if __name__ == "__main__":
 
 ---
 
-### 参考文献
+## 参考文献
 
 * **Anthropic**, *Building effective agents* — `https://www.anthropic.com/research/building-effective-agents`
 * **LangChain**, *Plan-and-Execute Agents* — `https://blog.langchain.com/planning-agents/`

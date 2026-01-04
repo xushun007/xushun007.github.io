@@ -7,9 +7,7 @@ tags: [Agent, Effective AI Agent]
 render_with_liquid: false
 ---
 
-## 条目 3：以“问题空间”定义智能体边界，而非“模型能力”
-
-### 背景动机
+## 背景动机
 
 LLM 的通用性是其最大的优势，但对于 Agent 系统架构设计而言，这往往是最大的陷阱。
 
@@ -22,18 +20,18 @@ LLM 的通用性是其最大的优势，但对于 Agent 系统架构设计而言
 
 **智能体的边界不应由底座模型能做什么（What LLM can do）决定，而应由我们要解决的特定领域问题（What Problem to solve）决定。**
 
-### 原理分析
+## 原理分析
 
 设计 Agent 边界时，我们应参照传统软件架构中的**限界上下文（Bounded Context）**，给 Agent 设定范围、边界和框定具体职责。但需注意两者在 AI 时代的本质差异。
 
-#### 1. 与传统架构的**共同点**：隔离复杂性
+### 1. 与传统架构的**共同点**：隔离复杂性
 
 在微服务或 DDD 中，我们将“商品”概念在库存域和销售域分开，是为了避免逻辑耦合。同理，在 Agent 中，我们需要**上下文隔离（Context Isolation）**。
 
 * **输入隔离**：一个负责 SQL 生成的 Agent，不需要知道用户的“情感状态”或“上一轮的闲聊内容”。
 * **工具隔离**：一个负责文案生成的 Agent，绝对不应持有 `drop_table` 或 `search_logs` 的工具权限。
 
-#### 2. 与传统架构的**差异点**：对抗“过度泛化”
+### 2. 与传统架构的**差异点**：对抗“过度泛化”
 
 这是 Agent 架构特有的挑战。
 
@@ -44,12 +42,12 @@ LLM 的通用性是其最大的优势，但对于 Agent 系统架构设计而言
 
 Andrew Ng 在 *Agentic Reasoning* 演讲中强调：**与其追求一个 Zero-shot 的天才，不如构建一组通过协作解决问题的专才（Narrow Agents）。**
 
-### 业界标杆案例
+## 业界标杆案例
 
 * **Claude Code (Anthropic)**: Claude Code 是目前工程化落地的典范。尽管 Claude Sonnet 模型本身可以写诗、画图、分析财报，但 **Claude Code 这个 Agent** 被严格限制在“终端开发”的问题空间内。它只关注文件读写、 Bash 命令执行和代码变更。它摒弃了所有与“软件开发循环”无关的通用能力，这使得它在编码任务上的表现远超通用的 Claude 网页版。
 * **OpenAI Deep Research**: Deep Research 并没有试图成为一个“文章生成器”。它的核心职责被严格锁定在**“信息挖掘与验证”**。它会自动执行多轮搜索，阅读网页，但它的输出通常是详实的报告材料，而非最终的营销软文。这种将“素材搜集（Research）”与“内容创作（Copywriting）”剥离的设计，避免了事实性错误与文风修饰之间的冲突。
 
-### 工程实践
+## 工程实践
 
 在定义 Agent 时，应遵循**“一个 Agent，一个核心目标”**的原则。
 
@@ -63,7 +61,7 @@ Andrew Ng 在 *Agentic Reasoning* 演讲中强调：**与其追求一个 Zero-sh
 3. **工具集的“无知”设计**：
 不要为了方便给 Agent 挂载通用工具箱。**写作 Agent 不应该有搜索工具**。如果在写作阶段发现信息不足，这不应由写作 Agent 自己去搜索（这会引入不可控的循环），而应由上层编排层退回给“搜索 Agent”重新执行。
 
-### 示例代码
+## 示例代码
 
 以下代码展示了如何通过严格的工具裁剪和防御性提示词来构建一个“高内聚”的专家 Agent，而非通用 Agent。
 
@@ -149,7 +147,7 @@ def deep_research_flow(topic: str):
 
 ```
 
-### 参考文献
+## 参考文献
 
 * **Eric Evans**, *Domain-Driven Design: Tackling Complexity in the Heart of Software* — `https://book.douban.com/subject/26819666/`
 * **Andrew Ng**, *Agentic Reasoning and the Future of AI Development*  — `https://www.youtube.com/watch?v=sal78ACtGTc`

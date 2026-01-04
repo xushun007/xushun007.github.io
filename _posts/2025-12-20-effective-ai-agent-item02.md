@@ -7,15 +7,13 @@ tags: [Agent, Effective AI Agent]
 render_with_liquid: false
 ---
 
-## 条目 2：超越固定流程：用Agent解决开放性问题
-
-### 背景动机
+## 背景动机
 
 当任务的复杂度超过了预定义工作流的边界——例如“调研某行业的最新动态并写一份简报”，所需的工具调用顺序、搜索关键词和迭代次数在编码时无法预知——我们才需要引入 Agent。
 
 然而，许多开发者常犯的错误是让 LLM “隐式思考”：直接把所有工具扔给模型，指望它一次性吐出最终结果。这种“黑盒”模式导致了著名的**循环陷阱（Loop Trap）**：模型可能陷入无休止的搜索，或者在错误的方向上越跑越远。在生产环境中，不可见的思考过程意味着不可调试，不可控的循环意味着不可估量的 Token 成本。
 
-### 原理分析
+## 原理分析
 
 **Agent 的核心架构可以想象成一个运行在“认知循环（Cognitive Loop）”上的状态机。**
 
@@ -33,13 +31,13 @@ Andrew Ng 在《The Batch》中指出，Agentic Workflow 的威力往往不来�
 
 Karpathy 在《Intro to Large Language Models》提出的 LLM OS 本质上是将大语言模型视为**系统内核（CPU）**的 Agent 架构，它通过调度内存、工具和感知模块来像计算机操作系统一样解决复杂问题，标志着 LLM 从单纯的“文本生成器”向“新型计算平台”的演进。
 
-### 业界标杆案例
+## 业界标杆案例
 
 - Coding Agent：如Claude Code 和 Cursor。它们不仅仅是代码补全，而是构建了一个包含“终端反馈-代码修改-运行测试”的闭环。模型根据推理、规划、错误反馈、工具调用和测试验证解决了中小规模的编码问题，这是传统工作流无法实现的。
 - Deep Research Agent：如OpenAI 和 Google的 Deep Research。它们通过“递归任务分解”处理开放性问题：Agent 自主生成搜索查询，阅读网页，发现新线索，再生成新的查询，直到收集足够信息。若用工作流去限定流程步骤（比如固定 3 次搜索 + 2 次总结），几乎注定要么信息不足，要么成本过高和结构不完整。
 - Customer Support Agent：如Klarna 的客服 Agent。它自主处理了 2/3 的客户聊天（230 万次对话），其核心在于能够根据用户模糊的意图（如退货、查询物流、争议处理）在多个内部 API 系统中动态导航，而非遵循死板的 SOP 流程。
 
-### 工程实践
+## 工程实践
 
 设计 Agent 循环时，必须将其视为一个受限的**有限状态机（FSM）**，而非无限递归的函数。
 
@@ -48,7 +46,7 @@ Karpathy 在《Intro to Large Language Models》提出的 LLM OS 本质上是将
 3.  **分离系统指令**：将“角色设定”与“动态任务”的上下文分离。在多轮循环中，系统提示词容易被过长的对话历史稀释，需要定期重申关键约束。
 4.  **上下文工程**：将 Context 视为稀缺的 RAM 资源。Agent 的成功依赖于精准的信息注入——既不能让无关的检索结果挤占推理空间，也不能让过早的历史噪音干扰当前的决策。
 
-### 示例代码
+## 示例代码
 
 不依赖复杂框架，用 Python 原生结构展示一个受控的 ReAct 循环骨架：
 
@@ -84,7 +82,7 @@ def run_agent_loop(agent, initial_state, max_steps=5):
 ```
 注：上面只是描述ReAct 循环的核心流程，在生产级环境中需结合更广泛的能力，如规划、记忆、容错处理和成本管控。
 
-### 参考文献
+## 参考文献
 
   * Yao et al., *ReAct: Synergizing Reasoning and Acting in Language Models* (ICLR 2023) — `https://arxiv.org/abs/2210.03629`
   * Andrew Ng, *The Batch: Agentic Design Patterns* — `https://www.deeplearning.ai/the-batch/issue-242/`
