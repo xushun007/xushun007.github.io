@@ -1,7 +1,7 @@
 ---
-title: 《Effective AI Agent》条目 10：文件是 Agent 最可靠的记忆载体，比“无限上下文”更现实
+title: 《Effective AI Agent》条目 10：文件是 Agent 最可靠的记忆载体，比“无限上下文”更有效
 author: xushun
-date: 2026-01-11
+date: 2026-01-10
 categories: [Agent]
 tags: [Agent, Effective AI Agent, Memory]
 render_with_liquid: false
