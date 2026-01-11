@@ -1,7 +1,7 @@
 ---
 title: 《Effective AI Agent》条目 9：围绕KV缓存组织上下文降本提速
 author: xushun
-date: 2026-01-07
+date: 2026-01-08
 categories: [Agent]
 tags: [Agent, Effective AI Agent]
 render_with_liquid: false
