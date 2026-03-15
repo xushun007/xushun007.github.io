@@ -34,6 +34,7 @@
 - 【译】[不要构建多智能体 (Multi-Agents)](_posts/2025-06-12-dont-build-multi-agents.md)
 - 【译】[使用 Claude Agent SDK 构建代理](_posts/2025-09-29-building-agents-with-the-claude-agent-sdk.md)
 - 【译】[Claude Code 凭什么这么好用？](_posts/2025-08-23-What_makes_Claude_Code_so_damn_good.md)
+- 【译】[如何成为世界级的 Agentic Engineer](_posts/2026-03-05-how-to-be-a-world-class-agentic-engineer.md)
 
 ### Agent 架构分析
 
