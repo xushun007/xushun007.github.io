@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Navi-agent Terminal-Bench 2.1 trace distribution</title>
+  <desc id="desc">89 tasks, showing median, mean, p90, and maximum for iterations, runtime duration, input tokens, and output tokens.</desc>
+  <style>
+    .bg{fill:#0b1020}.panel{fill:#131b31;stroke:#263458;stroke-width:1}.title{fill:#f8fafc;font:700 30px system-ui,-apple-system,sans-serif}.sub{fill:#aab8d4;font:400 16px system-ui,-apple-system,sans-serif}.h{fill:#e6edf9;font:700 18px system-ui,-apple-system,sans-serif}.label{fill:#aab8d4;font:400 15px system-ui,-apple-system,sans-serif}.value{fill:#f8fafc;font:700 20px system-ui,-apple-system,sans-serif}.small{fill:#93a4c7;font:400 13px system-ui,-apple-system,sans-serif}.track{fill:#283653}.med{fill:#4cc9f0}.mean{fill:#4895ef}.p90{fill:#f72585}.max{fill:#fca311}
+  </style>
+  <rect class="bg" width="1200" height="760" rx="24"/>
+  <text class="title" x="60" y="68">Terminal-Bench 2.1 — full 89-task trace distribution</text>
+  <text class="sub" x="60" y="100">Navi-agent · deepseek-flash · Modal sandbox · values are per task unless marked total</text>
+  <rect class="panel" x="60" y="135" width="1080" height="82" rx="14"/>
+  <text class="label" x="90" y="169">Verified delivery</text><text class="value" x="90" y="199">67 / 89 · 75.3%</text>
+  <text class="label" x="390" y="169">Total agent-loop duration</text><text class="value" x="390" y="199">9h 44m 18s</text>
+  <text class="label" x="710" y="169">Total model tokens in trace</text><text class="value" x="710" y="199">82.05M</text>
+  <text class="label" x="980" y="169">Total iterations</text><text class="value" x="980" y="199">2,456</text>
+
+  <rect class="panel" x="60" y="250" width="520" height="220" rx="14"/>
+  <text class="h" x="88" y="286">Iterations</text><text class="small" x="88" y="312">budget is 50; summary fallback may report 51</text>
+  <text class="label" x="88" y="350">Median</text><rect class="track" x="205" y="334" width="260" height="22" rx="11"/><rect class="med" x="205" y="334" width="112" height="22" rx="11"/><text class="value" x="485" y="352">22</text>
+  <text class="label" x="88" y="390">Mean</text><rect class="track" x="205" y="374" width="260" height="22" rx="11"/><rect class="mean" x="205" y="374" width="141" height="22" rx="11"/><text class="value" x="485" y="392">27.6</text>
+  <text class="label" x="88" y="430">P90</text><rect class="track" x="205" y="414" width="260" height="22" rx="11"/><rect class="p90" x="205" y="414" width="260" height="22" rx="11"/><text class="value" x="485" y="432">51</text>
+
+  <rect class="panel" x="620" y="250" width="520" height="220" rx="14"/>
+  <text class="h" x="648" y="286">Agent-loop duration</text><text class="small" x="648" y="312">P90 is 3.3× median; max is 9.1× median</text>
+  <text class="label" x="648" y="350">Median</text><rect class="track" x="770" y="334" width="250" height="22" rx="11"/><rect class="med" x="770" y="334" width="76" height="22" rx="11"/><text class="value" x="1040" y="352">4m 29s</text>
+  <text class="label" x="648" y="390">Mean</text><rect class="track" x="770" y="374" width="250" height="22" rx="11"/><rect class="mean" x="770" y="374" width="111" height="22" rx="11"/><text class="value" x="1040" y="392">6m 34s</text>
+  <text class="label" x="648" y="430">P90</text><rect class="track" x="770" y="414" width="250" height="22" rx="11"/><rect class="p90" x="770" y="414" width="250" height="22" rx="11"/><text class="value" x="1040" y="432">14m 47s</text>
+
+  <rect class="panel" x="60" y="500" width="520" height="205" rx="14"/>
+  <text class="h" x="88" y="536">Input tokens</text><text class="small" x="88" y="562">total 78.79M · max 3.52M</text>
+  <text class="label" x="88" y="600">Median</text><rect class="track" x="205" y="584" width="260" height="22" rx="11"/><rect class="med" x="205" y="584" width="41" height="22" rx="11"/><text class="value" x="485" y="602">559K</text>
+  <text class="label" x="88" y="640">Mean</text><rect class="track" x="205" y="624" width="260" height="22" rx="11"/><rect class="mean" x="205" y="624" width="65" height="22" rx="11"/><text class="value" x="485" y="642">885K</text>
+  <text class="label" x="88" y="680">P90</text><rect class="track" x="205" y="664" width="260" height="22" rx="11"/><rect class="p90" x="205" y="664" width="182" height="22" rx="11"/><text class="value" x="485" y="682">2.47M</text>
+
+  <rect class="panel" x="620" y="500" width="520" height="205" rx="14"/>
+  <text class="h" x="648" y="536">Output tokens</text><text class="small" x="648" y="562">total 3.26M · max 152.7K</text>
+  <text class="label" x="648" y="600">Median</text><rect class="track" x="770" y="584" width="250" height="22" rx="11"/><rect class="med" x="770" y="584" width="46" height="22" rx="11"/><text class="value" x="1040" y="602">28.2K</text>
+  <text class="label" x="648" y="640">Mean</text><rect class="track" x="770" y="624" width="250" height="22" rx="11"/><rect class="mean" x="770" y="624" width="60" height="22" rx="11"/><text class="value" x="1040" y="642">36.6K</text>
+  <text class="label" x="648" y="680">P90</text><rect class="track" x="770" y="664" width="250" height="22" rx="11"/><rect class="p90" x="770" y="664" width="159" height="22" rx="11"/><text class="value" x="1040" y="682">97.0K</text>
+</svg>
