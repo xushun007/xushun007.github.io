@@ -8,9 +8,13 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import FuncFormatter
 
 
+plt.rcParams["font.sans-serif"] = ["Heiti SC", "Arial Unicode MS", "DejaVu Sans"]
+plt.rcParams["axes.unicode_minus"] = False
+
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "assets" / "data" / "navi-agent-terminal-bench-2-1-task-metrics.json"
-OUTPUT_PATH = ROOT / "assets" / "img" / "202610" / "navi-agent-terminal-bench-2-1-ranked-task-dots.png"
+OUTPUT_PATH = ROOT / "assets" / "img" / "202610" / "navi-agent-terminal-bench-2-1-ranked-task-dots-zh.png"
 
 COLORS = {"point": "#3b82f6", "tail": "#e11d48", "median": "#0891b2", "p90": "#db2777"}
 
@@ -38,12 +42,12 @@ def panel(ax: plt.Axes, values: list[int], title: str, subtitle: str, formatter)
 
     ax.text(0.01, 1.10, title, transform=ax.transAxes, fontsize=16, fontweight="bold", color="#172033")
     ax.text(0.01, 1.015, subtitle, transform=ax.transAxes, fontsize=10.5, color="#65738d")
-    ax.text(0.985, median, f" median {formatter(median)} ", transform=ax.get_yaxis_transform(), ha="right", va="bottom", fontsize=9.5, color=COLORS["median"], bbox={"facecolor": "#f8fbff", "edgecolor": "none", "pad": 1.5})
+    ax.text(0.985, median, f" 中位数 {formatter(median)} ", transform=ax.get_yaxis_transform(), ha="right", va="bottom", fontsize=9.5, color=COLORS["median"], bbox={"facecolor": "#f8fbff", "edgecolor": "none", "pad": 1.5})
     ax.text(0.985, p90, f" P90 {formatter(p90)} ", transform=ax.get_yaxis_transform(), ha="right", va="bottom", fontsize=9.5, color=COLORS["p90"], bbox={"facecolor": "#fff7fa", "edgecolor": "none", "pad": 1.5})
 
     ax.set_xlim(0, 90)
     ax.set_xticks([1, 25, 50, 75, 89])
-    ax.set_xlabel("Tasks ranked by this metric", color="#65738d")
+    ax.set_xlabel("按该指标排序的任务", color="#65738d")
     ax.grid(axis="y", color="#dce5f2", linewidth=0.8)
     ax.set_axisbelow(True)
     ax.spines[["top", "right", "left"]].set_visible(False)
@@ -55,13 +59,13 @@ def main() -> None:
     data = json.loads(DATA_PATH.read_text())
     figure, axes = plt.subplots(3, 1, figsize=(14, 12))
     figure.set_facecolor("#ffffff")
-    figure.suptitle("Navi-agent on Terminal-Bench 2.1: each point is one task", x=0.06, y=0.985, ha="left", fontsize=23, fontweight="bold", color="#172033")
-    figure.text(0.06, 0.943, "89 tasks · deepseek-flash · Modal sandbox · tasks are independently ranked in each panel", fontsize=11.5, color="#65738d")
+    figure.suptitle("Navi-agent Terminal-Bench 2.1：每个点代表一个任务", x=0.06, y=0.985, ha="left", fontsize=23, fontweight="bold", color="#172033")
+    figure.text(0.06, 0.943, "89 个任务 · deepseek-flash · Modal sandbox · 每个面板按对应指标独立排序", fontsize=11.5, color="#65738d")
     figure.subplots_adjust(top=0.885, bottom=0.065, left=0.075, right=0.97, hspace=0.62)
 
-    panel(axes[0], data["iterations"], "Iterations", "Budget is 50; summary fallback can report 51.", str)
-    panel(axes[1], data["duration_ms"], "Agent-loop duration", "Runtime duration only; Harbor verifier post-processing is excluded.", duration)
-    panel(axes[2], data["input_tokens"], "Input tokens", "Runtime-trace input tokens; provider billing uses a broader accounting boundary.", tokens)
+    panel(axes[0], data["iterations"], "迭代次数", "预算为 50；summary fallback 可能记录为 51。", str)
+    panel(axes[1], data["duration_ms"], "agent-loop 时长", "仅统计 runtime 时长；不含 Harbor verifier 后处理。", duration)
+    panel(axes[2], data["input_tokens"], "输入 token", "runtime trace 的输入 token；provider billing 口径更宽。", tokens)
 
     figure.savefig(OUTPUT_PATH, dpi=180, bbox_inches="tight", facecolor=figure.get_facecolor())
     print(OUTPUT_PATH)
