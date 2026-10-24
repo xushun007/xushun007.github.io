@@ -1,7 +1,7 @@
 ---
 title: Navi-Agent 的 Terminal-Bench 2.1 评测
 author: xushun
-date: 2026-10-06
+date: 2026-10-09
 categories: [Agent]
 tags: [Agent, Coding Agent, Evaluation, Terminal-Bench, Modal]
 render_with_liquid: false
@@ -157,8 +157,6 @@ Terminal-Bench 的公开排行榜汇总了不同 Agent、模型、提示词、�
 - 暂时不急着继续增加迭代次数，先把失败案例、验收条件和环境诊断做扎实。
 
 最后，我们也在团队中实践 Loop Engineering：用评测持续改进单个 Agent 的能力，再让不同 Agent 协同起来，串联起完整的交付流程。
-
-说明：Navi-Agent 目前仍是一个个人实验项目，本文记录的是一次工程实践，不代表生产环境能力；文章结构、观点和主要内容由我主导，部分文字借助 AI 做了语言润色。
 
 ## 附录：相关链接
 
