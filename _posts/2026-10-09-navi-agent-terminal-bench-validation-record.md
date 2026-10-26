@@ -5,7 +5,6 @@ date: 2026-10-09
 categories: [Agent]
 tags: [Agent, Coding Agent, Evaluation, Terminal-Bench, Modal]
 render_with_liquid: false
-published: false
 ---
 
 去年 9 月，受 Codex 启发，我开始尝试写第一个 Coding Agent 原型，主要验证 ReAct 循环和 session 管理。后来，OpenClaw 的流行、Hermes 展现出的自我改进机制，以及 Coding Agent 在不同任务中的泛化能力，都让我很想进一步理解它们是怎么工作的。到了 2026 年 5 月，我逐步将这些想法做出来、跑起来，于是开始构建第二个属于自己的个人助理/Coding Agent —— Navi-Agent。
