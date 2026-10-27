@@ -1,6 +1,5 @@
 ---
-title: "解读 Anthropic 招股书：商业增长背后的 Agent 进化闭环"
-description: "从 Anthropic S-1 招股书，观察企业级 AI 的产品分层、真实使用反馈与 AI 辅助研发。"
+title: "读 Anthropic 招股书：两个 Loop 如何推动 AI 进化"
 author: xushun
 date: 2026-10-27
 categories: [Agent]
@@ -12,7 +11,7 @@ render_with_liquid: false
 
 这份招股书有三个值得关注的地方：企业工作负载增长后，产品如何分层；真实任务如何成为改进依据；AI 如何进入 AI 研发流程。
 
-## 1. 企业工作负载增长，系统问题浮出水面
+## 1. Anthropic 的营收与企业客户增长
 
 | 指标 | 2024 年 | 2025 年 | 2026 上半年 |
 |---|---:|---:|---:|
